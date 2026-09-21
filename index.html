@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>РАЗДАЧА САЙТ 🚀 — бесплатные VPN подписки</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --bg: #08080c;
+    --card: rgba(255,255,255,0.03);
+    --card-hover: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.08);
+    --text: #f2f2f7;
+    --muted: #7c7c8a;
+    --red: #ff2d55;
+    --red-glow: rgba(255,45,85,0.5);
+    --purple: #a855f7;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.5;
+    font-weight: 500;
+    padding-bottom: 60px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,45,85,0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-block { text-align: center; margin-bottom: 32px; }
+  .logo-icon {
+    width: 90px; height: 90px;
+    margin: 0 auto 20px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,45,85,0.25), rgba(255,45,85,0.05));
+    box-shadow: 0 0 60px var(--red-glow), inset 0 0 30px rgba(255,45,85,0.2);
+    border: 1px solid rgba(255,45,85,0.3);
+    font-size: 38px;
+    animation: pulseIcon 3s ease-in-out infinite;
+  }
+  @keyframes pulseIcon {
+    0%, 100% { box-shadow: 0 0 60px var(--red-glow), inset 0 0 30px rgba(255,45,85,0.2); }
+    50% { box-shadow: 0 0 90px var(--red-glow), inset 0 0 40px rgba(255,45,85,0.35); }
+  }
+
+  h1 {
+    font-size: clamp(32px, 8vw, 46px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+  h1 .accent { color: var(--red); text-shadow: 0 0 30px var(--red-glow); }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 500;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 36px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::before {
+    content: '';
+    width: 4px; height: 16px;
+    background: var(--red);
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--red-glow);
+  }
+
+  .cards { display: flex; flex-direction: column; gap: 10px; }
+
+  .sub-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+    overflow: hidden;
+  }
+  .sub-card:active { transform: scale(0.985); }
+  .sub-card:hover {
+    background: var(--card-hover);
+    border-color: rgba(255,45,85,0.3);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+  .sub-card.copied {
+    border-color: var(--red);
+    background: rgba(255,45,85,0.1);
+  }
+
+  .sub-info { flex: 1; min-width: 0; }
+  .sub-name {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .sub-desc {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .copy-icon {
+    flex-shrink: 0;
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    transition: all 0.25s;
+  }
+  .sub-card:hover .copy-icon { color: var(--text); border-color: rgba(255,45,85,0.4); }
+  .sub-card.copied .copy-icon {
+    background: var(--red);
+    border-color: var(--red);
+    color: #fff;
+    box-shadow: 0 0 20px var(--red-glow);
+  }
+  .copy-icon svg { width: 17px; height: 17px; }
+
+  .instr-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px;
+    margin-top: 14px;
+  }
+  .instr-title {
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .step {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+  }
+  .step:last-child { margin-bottom: 0; }
+  .step-num {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(255,45,85,0.12);
+    border: 1px solid rgba(255,45,85,0.4);
+    color: var(--red);
+    font-weight: 900;
+    font-size: 13px;
+    display: grid;
+    place-items: center;
+  }
+  .step-text {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+    font-weight: 500;
+    padding-top: 3px;
+  }
+  .step-text b { color: var(--red); font-weight: 800; }
+
+  .tg-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 16px;
+    background: linear-gradient(135deg, #ff2d55, #a855f7);
+    border-radius: 14px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 10px 40px rgba(255,45,85,0.3);
+    transition: all 0.3s;
+  }
+  .tg-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 50px rgba(255,45,85,0.5); }
+  .tg-btn svg { width: 20px; height: 20px; }
+
+  .toast {
+    position: fixed;
+    bottom: 30px; left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--red);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 14px;
+    box-shadow: 0 10px 40px var(--red-glow);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    z-index: 1000;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 40px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="logo-block">
+    <div class="logo-icon">🔑</div>
+    <h1>РАЗДАЧА <span class="accent">САЙТ</span> 🚀</h1>
+    <p class="subtitle">Премиум ключи к цифровой свободе. Быстро. Безопасно. Бесплатно.</p>
+  </div>
+
+  <div class="section-title">📡 Наши подписки</div>
+  <div class="cards">
+
+    <!-- РАЗДАЧА ДОСТУП 🔥 -->
+    <div class="sub-card" data-link="https://tinyurl.com/td3ys8uj">
+      <div class="sub-info">
+        <div class="sub-name">Раздача Доступ 🔥</div>
+        <div class="sub-desc">Нажмите для копирования</div>
+      </div>
+      <div class="copy-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </div>
+    </div>
+
+    <!-- РАЗДАЧА 🏴‍☠️ -->
+    <div class="sub-card" data-link="https://clck.ru/3Vxvxp">
+      <div class="sub-info">
+        <div class="sub-name">Раздача 🏴‍☠️</div>
+        <div class="sub-desc">Нажмите для копирования</div>
+      </div>
+      <div class="copy-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </div>
+    </div>
+
+    <!-- РАЗДАЧА VIP ⭐️ -->
+    <div class="sub-card" data-link="https://telegram-vpn-mtproto-auto-grabber-574561673890.us-west1.run.app/api/sub?raw=2">
+      <div class="sub-info">
+        <div class="sub-name">Раздача VIP ⭐️</div>
+        <div class="sub-desc">Нажмите для копирования</div>
+      </div>
+      <div class="copy-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </div>
+    </div>
+
+    <!-- РАЗДАЧА 😮‍💨 -->
+    <div class="sub-card" data-link="https://u.to/11C5Ig">
+      <div class="sub-info">
+        <div class="sub-name">Раздача 😮‍💨</div>
+        <div class="sub-desc">Нажмите для копирования</div>
+      </div>
+      <div class="copy-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </div>
+    </div>
+
+    <!-- РАЗДАЧА 🧸 -->
+    <div class="sub-card" data-link="https://bit.ly/3VIP2Es">
+      <div class="sub-info">
+        <div class="sub-name">Раздача 🧸</div>
+        <div class="sub-desc">Нажмите для копирования</div>
+      </div>
+      <div class="copy-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-title">📖 Инструкция</div>
+  <div class="instr-card">
+    <div class="instr-title">Как подключиться</div>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">Скопируй ключ — выбери нужный список выше и нажми <b>«Копировать»</b></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">Открой клиент — <b>v2rayNG</b>, <b>Streisand</b>, <b>Hiddify</b> или <b>Clash</b></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">Импортируй профиль — добавь подписку из буфера обмена, узлы подтянутся сами</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text">Подключись — жми <b>Connect</b> и наслаждайся свободой ✨</div>
+    </div>
+  </div>
+
+  <div class="section-title">💬 Сообщество</div>
+  <div class="instr-card">
+    <div class="instr-title">Telegram-канал</div>
+    <p style="color: var(--muted); font-size: 14px; margin-bottom: 18px;">
+      Подписывайся, чтобы получать обновления зеркал и новые ключи первым.
+    </p>
+    <a href="https://t.me/razdachavpn" target="_blank" class="tg-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      @razdachavpn
+    </a>
+  </div>
+
+  <footer>© РАЗДАЧА САЙТ 🚀 — ключи бесплатно</footer>
+</div>
+
+<div class="toast" id="toast">✅ Скопировано!</div>
+
+<script>
+  const toast = document.getElementById('toast');
+  let toastTimer;
+
+  function showToast(text) {
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+  }
+
+  async function copyText(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (e2) {}
+      document.body.removeChild(ta);
+      return true;
+    }
+  }
+
+  document.querySelectorAll('.sub-card').forEach(card => {
+    card.addEventListener('click', async () => {
+      const link = card.dataset.link;
+      if (!link) {
+        showToast('⏳ Скоро добавим!');
+        return;
+      }
+      await copyText(link);
+      card.classList.add('copied');
+      showToast('✅ Скопировано!');
+      setTimeout(() => card.classList.remove('copied'), 1500);
+    });
+  });
+</script>
+
+</body>
+</html>
